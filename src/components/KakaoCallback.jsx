@@ -18,8 +18,8 @@ const KakaoCallback = ({ setUser }) => {
         })
         .then((response) => {
           console.log(response.data);
-          const accessCode = response.data.access_code;
-          localStorage.setItem("access_code", accessCode);
+          const accessToken = response.data.access_token;
+          localStorage.setItem("access_token", accessToken);
 
           // axios
           //   .get("http://localhost:8000/auth/verify/", {
