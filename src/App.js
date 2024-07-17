@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
   return (
     <div className="App">
@@ -13,9 +13,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/auth/kakao"
-          element={<KakaoCallback setUser={setUser} />}
+          element={<KakaoCallback />}
         />
-        <Route path="/profile" element={<Profile user={user} />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );
