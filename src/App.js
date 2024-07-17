@@ -1,21 +1,22 @@
-import { Routes, Route } from 'react-router-dom'
-import KakaoLoginButton from './components/KakaoLogin';
-import KakaoCallback from './components/KakaoCallback';
-import { useState } from 'react';
-import Profile from './components/Profile';
-
+import { Routes, Route } from "react-router-dom";
+import KakaoCallback from "./components/KakaoCallback";
+import { useState } from "react";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
 
   return (
     <div className="App">
-      <h1>Kakao OAuth Login</h1>
-        <Routes>
-          <Route path="/" element={<KakaoLoginButton />} />
-          <Route path="/auth/kakao" element={<KakaoCallback setUser={setUser} />} />
-          <Route path="/profile" element={<Profile user={user} />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/auth/kakao"
+          element={<KakaoCallback setUser={setUser} />}
+        />
+        <Route path="/profile" element={<Profile user={user} />} />
+      </Routes>
     </div>
   );
 }

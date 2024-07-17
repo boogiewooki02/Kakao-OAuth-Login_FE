@@ -12,14 +12,16 @@ const KakaoCallback = ({ setUser }) => {
     if (code) {
       // 인가 코드(code)를 Django 서버로 전송
       axios
-        .post("http://localhost:8000/auth/kakao/register/", {
+        .post("http://localhost:8000/auth/kakao/login/", {
           access_code: code,
-          description: '소개하는글입니다.',
+          // description: '소개하는글입니다.',
         })
         .then((response) => {
           console.log(response.data);
           const accessToken = response.data.access_token;
           localStorage.setItem("access_token", accessToken);
+          
+          navigate("/profile");
 
           // axios
           //   .get("http://localhost:8000/auth/verify/", {
